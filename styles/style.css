@@ -1,8 +1,6 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 body {
-  min-inline-size: 375px;
-  max-inline-size: 1440px;
   margin: 0;
   padding: 0;
 }
@@ -22,7 +20,7 @@ body {
 .header {
   display: grid;
   grid-template-areas: 'nav' 'title' 'desc';
-  height: 98vh;
+  height: 100vh;
   grid-template-rows: 2fr 1fr 2fr;
   position: relative;
 }
@@ -257,6 +255,7 @@ body {
 
   .content {
     padding-left: 20px;
+    gap: 75px;
   }
 
   .header {
@@ -276,10 +275,6 @@ body {
 
   .big-title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  }
-
-  .content {
-    gap: 75px;
   }
 
   .first {
@@ -324,6 +319,8 @@ body {
 
   .content {
     padding-left: 20px;
+    gap: 80px;
+    margin-block-end: 15px;
   }
 
   .big-title {
@@ -339,11 +336,6 @@ body {
   .header__theme-menu-list {
     flex-direction: row;
     gap: 7px;
-  }
-
-  .content {
-    gap: 80px;
-    margin-block-end: 15px;
   }
 
   .first {
