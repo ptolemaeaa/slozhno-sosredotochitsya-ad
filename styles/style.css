@@ -1,21 +1,28 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+body {
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
+  margin: 0;
+  padding: 0;
+}
+
 .page {
   display: grid;
-  gap: 40px;
+  gap: 50px;
   font-family: "IBM Plex mono", sans-serif;
   font-size: 18px;
   background-image: var(--background);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 
 .header {
   display: grid;
   grid-template-areas: 'nav' 'title' 'desc';
-  height: 100vh;
+  height: 98vh;
   grid-template-rows: 2fr 1fr 2fr;
   position: relative;
 }
@@ -33,7 +40,7 @@
 
 .decorated-zone::after {
   position: absolute;
-  left: 0px;
+  left: 10px;
   bottom: 10px;
   content: '';
   border-bottom: 1px solid var(--section-title-color);
@@ -138,7 +145,7 @@
 
 .section {
   display: grid;
-  gap: 15px;
+  gap: 23px;
 }
 
 .first {
@@ -173,6 +180,7 @@
   margin: 0;
   font-size: 18px;
   color: var(--paragraph-color);
+  line-height: 23.4px;
 }
 
 .subsection {
@@ -244,12 +252,26 @@
 
 @media (768px <= width < 1024px) {
   .page {
-    padding: 0 20px;
+    padding: 0 20px 0 0;
+  }
+
+  .content {
+    padding-left: 20px;
   }
 
   .header {
     grid-template-areas: '. nav' 'title title' '. desc';
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 2fr 3fr;
+    margin-block-end: 30px;
+  }
+
+  .header__theme-menu {
+    align-self: end;
+  }
+
+  .header__title {
+    align-self: end;
   }
 
   .big-title {
@@ -257,7 +279,7 @@
   }
 
   .content {
-    gap: 80px;
+    gap: 75px;
   }
 
   .first {
@@ -270,6 +292,7 @@
 
   .third {
     grid-template-areas: 'title lt lt lt lt lt' 'title par par par par par';
+    gap: 20px;
   }
 
   .gallery {
@@ -281,17 +304,26 @@
       'tape street street';
     gap: 20px;
   }
+
+  .subsection {
+    gap: 8px;
+  }
 }
 
 @media (width >= 1024px) {
   .page {
-    padding: 0 20px;
+    padding: 0 20px 0 0;
   }
 
   .header {
     grid-template-areas: 'nav nav' 'title title' '. desc';
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 2fr;
+    margin-block-end: 26px;
+  }
+
+  .content {
+    padding-left: 20px;
   }
 
   .big-title {
@@ -306,23 +338,26 @@
 
   .header__theme-menu-list {
     flex-direction: row;
-    gap: 30px;
+    gap: 7px;
   }
 
   .content {
     gap: 80px;
+    margin-block-end: 15px;
   }
 
   .first {
-    grid-template-areas: 'title par par par par';
+    grid-template-areas: 'title par par par';
   }
 
   .second {
-    grid-template-areas: 'title . . . . .' 'par par par par par par';
+    grid-template-areas: 'title . . . .' 'par par par par par';
   }
 
   .third {
-    grid-template-areas: 'title lt lt lt lt lt' 'title par par par par par';
+    grid-template-areas: 'title lt lt lt lt' 'title par par par par';
+    gap: 30px;
+    row-gap: 25px;
   }
 
   .gallery {
@@ -337,5 +372,13 @@
 
   .paragraphs__second {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .section__paragraphs {
+    gap: 18px;
+  }
+
+  .subsection {
+    gap: 10px;
   }
 }
