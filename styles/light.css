@@ -20,7 +20,6 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    /* Дублируем переменные светлой темы */  
     --accent-color: #FF8DCB;
     --title-color: #FFC2E6;
     --subtitle-color: #353430;
