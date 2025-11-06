@@ -1,5 +1,341 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  display: grid;
+  gap: 40px;
+  font-family: "IBM Plex mono", sans-serif;
+  font-size: 18px;
+  background-image: var(--background);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 0 10px;
+}
+
+.header {
+  display: grid;
+  grid-template-areas: 'nav' 'title' 'desc';
+  height: 100vh;
+  grid-template-rows: 2fr 1fr 2fr;
+  position: relative;
+}
+
+.decorated-zone::before {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  content: '';
+  border-top: 1px solid var(--section-title-color);
+  border-right: 1px solid var(--section-title-color);
+  height: 25px;
+  width: 25px;
+}
+
+.decorated-zone::after {
+  position: absolute;
+  left: 0px;
+  bottom: 10px;
+  content: '';
+  border-bottom: 1px solid var(--section-title-color);
+  border-left: 1px solid var(--section-title-color);
+  height: 25px;
+  width: 25px;
+}
+
+.header__rec {
+  position: absolute;
+  color: var(--accent-color);
+  top: 10px;
+  right: 10px;
+}
+
+.header__rec::after {
+  display: inline-block;
+  margin-inline-start: 5px;
+  content: '';
+  background-color: var(--accent-color);
+  box-shadow: 0 0 10px 3px var(--accent-color);
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  gap: 3px;
+}
+
+.header__theme-menu {
+  grid-area: nav;
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  all: unset;
+  color: var(--section-title-color);
+  text-transform: lowercase;
+  cursor: pointer;
+  padding: 0 15px;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  border: 1px solid var(--section-title-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--button-hover);
+}
+
+.header__theme-menu-button:focus {
+  border-bottom: 1px solid var(--section-title-color);
+}
+
+.big-title {
+  margin: 0;
+  grid-area: title;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: bold;
+  line-height: 0.83;
+  color: var(--title-color);
+  align-self: center;
+}
+
+.header__title {
+  text-shadow: 4px 4px 0 var(--accent-color);
+  justify-self: start;
+  align-self: end;
+}
+
+.header__description {
+  grid-area: desc;
+  display: block;
+  align-self: center;
+}
+
+.title-decor {
+  margin: 0;
+  background-color: var(--accent-color);
+  color: var(--subtitle-color);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.not-bold {
+  font-weight: normal;
+}
+
+.content {
+  display: grid;
+  justify-items: center;
+  gap: 50px;
+}
+
+.section {
+  display: grid;
+  gap: 15px;
+}
+
+.first {
+  grid-template-areas: 'title' 'par';
+}
+
+.second {
+  grid-template-areas: 'title' 'par';
+}
+
+.third {
+  grid-template-areas: 'title' 'lt' 'par';
+}
+
+.section__list-title {
+  grid-area: lt;
+}
+
+.section__paragraphs {
+  grid-area: par;
+  display: grid;
+  gap: 25px;
+}
+
+.section__title {
+  grid-area: title;
+  font-size: 18px;
+  color: var(--section-title-color);
+}
+
+.subsection__paragraph {
+  margin: 0;
+  font-size: 18px;
+  color: var(--paragraph-color);
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.link {
+  all: unset;
+  text-shadow: 2px 2px 0 var(--accent-color);
+  cursor: pointer;
+}
+
+.link:hover {
+  border-bottom: 1px solid var(--paragraph-color);
+}
+
+.link:focus {
+  border: 1px solid var(--paragraph-color);
+}
+
+.gallery {
+  display: grid;
+  grid-template-areas: 'gt' 'sunset' 'ice-cream' 'tape' 'books' 'street';
+  gap: 10px;
+}
+
+.gallery-title {
+  grid-area: gt;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sunset {
+  grid-area: sunset;
+}
+
+.ice-cream {
+  grid-area: ice-cream;
+}
+
+.tape {
+  grid-area: tape;
+}
+
+.books {
+  grid-area: books;
+}
+
+.street {
+  grid-area: street;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  justify-self: center;
+}
+
+.footer {
+  position: relative;
+  height: 100vh;
+  align-content: center;
+}
+
+@media (768px < width <= 1024px) {
+  .page {
+    padding: 0 20px;
+  }
+
+  .header {
+    grid-template-areas: '. nav' 'title title' '. desc';
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .big-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .content {
+    gap: 80px;
+  }
+
+  .first {
+    grid-template-areas: 'title par par par par';
+  }
+
+  .second {
+    grid-template-areas: 'title . . . . .' 'par par par par par par';
+  }
+
+  .third {
+    grid-template-areas: 'title lt lt lt lt lt' 'title par par par par par';
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      'gt gt gt'
+      'sunset sunset ice-cream'
+      'tape books ice-cream'
+      'tape street street';
+    gap: 20px;
+  }
+}
+
+@media (width > 1024px) {
+  .page {
+    padding: 0 20px;
+  }
+
+  .header {
+    grid-template-areas: 'nav nav' 'title title' '. desc';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+  }
+
+  .big-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+    margin-block-start: 20px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .content {
+    gap: 80px;
+  }
+
+  .first {
+    grid-template-areas: 'title par par par par';
+  }
+
+  .second {
+    grid-template-areas: 'title . . . . .' 'par par par par par par';
+  }
+
+  .third {
+    grid-template-areas: 'title lt lt lt lt lt' 'title par par par par par';
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      'gt gt gt'
+      'sunset sunset ice-cream'
+      'tape books ice-cream'
+      'tape street street';
+    gap: 20px;
+  }
+
+  .paragraphs__second {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
