@@ -7,14 +7,13 @@ body {
 
 .page {
   display: grid;
-  gap: 50px;
+  gap: 35px;
   font-family: "IBM Plex mono", sans-serif;
   font-size: 18px;
   background-image: var(--background);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  padding: 5px 10px;
 }
 
 .header {
@@ -23,12 +22,13 @@ body {
   height: 100vh;
   grid-template-rows: 2fr 1fr 2fr;
   position: relative;
+  padding: 5px 10px;
 }
 
 .decorated-zone::before {
   position: absolute;
   top: 10px;
-  right: 0px;
+  right: 10px;
   content: '';
   border-top: 1px solid var(--section-title-color);
   border-right: 1px solid var(--section-title-color);
@@ -129,6 +129,7 @@ body {
   color: var(--subtitle-color);
   font-size: 18px;
   font-weight: bold;
+  line-height: 23.4px;
 }
 
 .not-bold {
@@ -139,6 +140,7 @@ body {
   display: grid;
   justify-items: center;
   gap: 50px;
+  padding: 5px 10px;
 }
 
 .section {
@@ -156,6 +158,7 @@ body {
 
 .third {
   grid-template-areas: 'title' 'lt' 'par';
+  gap: 21px;
 }
 
 .section__list-title {
@@ -165,7 +168,7 @@ body {
 .section__paragraphs {
   grid-area: par;
   display: grid;
-  gap: 25px;
+  gap: 23px;
 }
 
 .section__title {
@@ -184,7 +187,7 @@ body {
 .subsection {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
 }
 
 .link {
@@ -246,31 +249,47 @@ body {
   position: relative;
   height: 100vh;
   align-content: center;
+  padding: 5px 10px;
 }
 
 @media (768px <= width < 1024px) {
   .page {
-    padding: 0 20px 0 0;
+    gap: 60px;
   }
 
   .content {
-    padding-left: 20px;
-    gap: 75px;
+    padding: 0 20px;
+    gap: 80px;
   }
 
   .header {
+    padding: 55px 15px 55px 0;
     grid-template-areas: '. nav' 'title title' '. desc';
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 2fr 3fr;
-    margin-block-end: 30px;
+    grid-template-rows: 2fr 1fr 2fr;
   }
 
   .header__theme-menu {
-    align-self: end;
+    align-self: center;
   }
 
   .header__title {
-    align-self: end;
+    align-self: center;
+  }
+
+  .header__description {
+    align-self: center;
+    margin: 0 10px;
+  }
+
+  .decorated-zone::after {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .decorated-zone::before {
+    right: 20px;
+    top: 20px;
   }
 
   .big-title {
@@ -283,11 +302,12 @@ body {
 
   .second {
     grid-template-areas: 'title . . . . .' 'par par par par par par';
+    row-gap: 20px;
   }
 
   .third {
     grid-template-areas: 'title lt lt lt lt lt' 'title par par par par par';
-    gap: 20px;
+    column-gap: 15px;
   }
 
   .gallery {
@@ -307,18 +327,33 @@ body {
 
 @media (width >= 1024px) {
   .page {
-    padding: 0 20px 0 0;
+    gap: 45px;
   }
 
   .header {
+    padding: 0px 0px 20px 0;
     grid-template-areas: 'nav nav' 'title title' '. desc';
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 2fr;
-    margin-block-end: 26px;
+    margin-bottom: 15px;
+  }
+
+  .header__description {
+    margin-right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
   }
 
   .content {
-    padding-left: 20px;
+    padding: 0 20px;
     gap: 80px;
     margin-block-end: 15px;
   }
@@ -340,6 +375,7 @@ body {
 
   .first {
     grid-template-areas: 'title par par par';
+    gap: 19px;
   }
 
   .second {
@@ -349,7 +385,7 @@ body {
   .third {
     grid-template-areas: 'title lt lt lt lt' 'title par par par par';
     gap: 30px;
-    row-gap: 25px;
+    row-gap: 20px;
   }
 
   .gallery {
@@ -370,7 +406,15 @@ body {
     gap: 18px;
   }
 
+  .paragraphs__third {
+    gap: 20px;
+  }
+
   .subsection {
     gap: 10px;
+  }
+
+  .footer {
+    
   }
 }
